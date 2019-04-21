@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+    const styles = {
+      parent:{
+        height: "100vh",
+        position: "fixed",
+        width: "100vw"
+      },
+      btn:{
+        outline:"none",
+        zoom: 3,
+        border: "none",
+        borderRadius: 5,
+        display:"block",
+        margin:"auto",
+        marginTop: "5em", 
+        backgroundColor:'white'
+      }
+    }
+    let getRandomColor = () => {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return(
+      document.body.style.background = color
+    )
+  }
+  return (
+    <div style={styles.parent}>
+      <button style={styles.btn} onClick={()=> getRandomColor()}>Click me</button>
       </div>
     );
-  }
+  };
 }
 
 export default App;
